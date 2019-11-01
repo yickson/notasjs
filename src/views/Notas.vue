@@ -80,8 +80,7 @@ export default {
     agregarNota(item){
       this.axios.post('nueva-nota', item)
         .then(res => {
-          // Agrega al inicio de nuestro array notas
-          this.notas.unshift(res.data);
+          this.listarNotas();
 
           // Alerta de mensaje
           this.showAlert();
@@ -89,12 +88,12 @@ export default {
           this.mensaje.color = 'success';
         })
         .catch( e => {
-          console.log(e.response.data.error.errors.nombre.message);
+          console.log(e);
 
           // Alerta de mensaje
           this.showAlert();
           this.mensaje.color = 'danger';
-          this.mensaje.texto = e.response.data.error.errors.nombre.message;
+          this.mensaje.texto = 'Error en el sistema';
         })
       this.notas = {}
     },
