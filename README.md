@@ -1,4 +1,4 @@
-# frontend
+# Aplicación web de notas
 
 ## Project setup
 ```
