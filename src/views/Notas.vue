@@ -82,11 +82,11 @@ export default {
     agregarNota(item){
       this.axios.post('nueva-nota', item)
         .then(res => {
-          this.listarNotas();
+          this.notas.push(res.data);
 
           // Alerta de mensaje
           this.showAlert();
-          this.mensaje.texto = 'Notas Agregada!'
+          this.mensaje.texto = 'Notas Agregada!';
           this.mensaje.color = 'success';
         })
         .catch( e => {
@@ -96,18 +96,17 @@ export default {
           this.showAlert();
           this.mensaje.color = 'danger';
           this.mensaje.texto = 'Error en el sistema';
-        })
-      this.notas = {}
+        });
     },
     eliminarNota(id){
     this.axios.delete(`nota/${id}`)
         .then(res => {
-        let index = this.notas.findIndex( item => item._id === res.data._id )
+        let index = this.notas.findIndex( item => item._id === res.data._id );
         this.notas.splice(index, 1);
 
         this.showAlert();
-        this.mensaje.texto = 'Notas Eliminada!'
-        this.mensaje.color = 'danger'
+        this.mensaje.texto = 'Notas Eliminada!';
+        this.mensaje.color = 'danger';
         })
         .catch( e => {
         console.log(e.response);
