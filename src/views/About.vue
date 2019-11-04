@@ -1,5 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Sitio web para mostrar las notas en una interface conectada a MongoDB</h1>
+    <p>API-REST</p>
   </div>
 </template>
