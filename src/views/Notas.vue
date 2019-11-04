@@ -82,7 +82,7 @@ export default {
     agregarNota(item){
       this.axios.post('nueva-nota', item)
         .then(res => {
-          this.notas.push(res.data);
+          this.notas.unshift(res.data);
 
           // Alerta de mensaje
           this.showAlert();
